@@ -1,0 +1,52 @@
+<div class="container">
+  <button mat-button color="primary" (click)="openDialog(null)">Abra sua Conta</button>
+
+  <table #table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef> Nome </th>
+      <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+    </ng-container>
+    <ng-container matColumnDef="numeroConta">
+      <th mat-header-cell *matHeaderCellDef> Numero Conta </th>
+      <td mat-cell *matCellDef="let element"> {{element.numeroConta}} </td>
+    </ng-container>
+    <ng-container matColumnDef="agencia">
+      <th mat-header-cell *matHeaderCellDef> Agencia </th>
+      <td mat-cell *matCellDef="let element"> {{element.agencia}} </td>
+    </ng-container>
+    <ng-container matColumnDef="chequeEspecialLiberado">
+      <th mat-header-cell *matHeaderCellDef> chequeEspecialLiberado </th>
+      <td mat-cell *matCellDef="let element"> {{element.chequeEspecialLiberado}} </td>
+    </ng-container>
+    <ng-container matColumnDef="saldo">
+      <th mat-header-cell *matHeaderCellDef> saldo </th>
+      <td mat-cell *matCellDef="let element"> {{element.saldo}} </td>
+    </ng-container>
+    <ng-container matColumnDef="chequeEspecial">
+      <th mat-header-cell *matHeaderCellDef> Cheque Especial </th>
+      <td mat-cell *matCellDef="let element"> {{element.chequeEspecial}} </td>
+    </ng-container>
+    <ng-container matColumnDef="taxa">
+      <th mat-header-cell *matHeaderCellDef> Taxa </th>
+      <td mat-cell *matCellDef="let element"> {{element.taxa}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> actions </th>
+      <td mat-cell *matCellDef="let element">
+          <button mat-icon-button  (click)="editElement(element)"  color="primary">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button  (click)="deleteElement(element.id)" color="primary" >
+            <mat-icon>delete</mat-icon>
+          </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
