@@ -11,9 +11,11 @@ import { Observable } from "rxjs";
    getElements(): Observable<PeriodicElement[]>{
     return this.http.get<PeriodicElement[]>(this.elementApiUrl);
    }
+
    createElements(element:PeriodicElement):Observable<PeriodicElement>{
      return this.http.post<PeriodicElement>(this.elementApiUrl,element);
    }
+
    editElements(element:PeriodicElement):Observable<PeriodicElement>{
     return this.http.put<PeriodicElement>(`${this.elementApiUrl}/${element.id}`,element);
   }
